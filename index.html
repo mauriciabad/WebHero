@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700,900" rel="stylesheet">
+  <title>Web Hero</title>
+  <meta name="description" content="A game like guitar hero as website for a worckshop of Web at JEDI">
+</head>
+<body>
+  <section id="menu">
+    <div>
+      <h1>Web Hero</h1>
+      <div class="menu-container">
+        <div class="menu-create">
+          <h2>Default</h2>
+          <div>
+            <input type="radio" name="song-name" checked id="Ocarina" onclick="ChangeSongName('ocarina.mp3')">
+            <label for="Ocarina">Ocarina</label>
+          </div>
+          <div>
+            <input type="radio" name="song-name" id="Funky" onclick="ChangeSongName('funky.mp3')">
+            <label for="Funky">Funky Town</label>
+          </div>
+          <div>
+            <input type="radio" name="song-name" id="Gasolina" onclick="ChangeSongName('gasolina.mp3')">
+            <label for="Gasolina">Gasolina</label>
+          </div>
+          <div>
+            <input type="radio" name="song-name" id="Run" onclick="ChangeSongName('run.mp3')">
+            <label for="Run">Run Boy Run</label>
+          </div>
+          <div>
+            <input type="radio" name="song-name" id="AlexF" onclick="ChangeSongName('crazy.mp3')">
+            <label for="AlexF">Crazy Frog</label>
+          </div>
+          <div>
+            <input type="radio" name="song-name" id="MountainKing" onclick="ChangeSongName('mountain.mp3')">
+            <label for="MountainKing">Mountain King</label>
+          </div>
+          <div>
+          </div>
+          <button type="button" onclick="LoadGame(false, false); this.blur();" name="play">Play</button>
+        </div>
+        <div class="menu-load">
+          <h2>Custom</h2>
+          <input type="file" accept="audio/*" id="other" onchange="handleFiles(this.files[0])">
+          <textarea id="inputGame" placeholder='{"a":[], "s":[], "d":[], "f":[]}' spellcheck="false"></textarea>
+          <div class="menu-buttons">
+            <button type="button" name="create" onclick="LoadGame(true, true); this.blur();">Create</button>
+            <button type="button" name="load" onclick="LoadGame(true, false) this.blur();">Load</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="menu-end" class="menu-hidden">
+    <div>
+      <label for="menu-end-text">Recorded game:</label>
+      <textarea id="menu-end-text" spellcheck="false">{"a":[], "s":[], "d":[], "f":[]}</textarea>
+      <div class="menu-end-actions">
+        <button type="button" name="close" onclick="closeEnd();">Close</button>
+        <button type="button" name="copy" onclick="copy();">Copy</button>
+      </div>
+    </div>
+  </section>
+  <section class="game">
+    <div class="progress-container">
+      <div class="progress-bar" id="progress"></div>
+    </div>
+    <span class="score"><span id="score">0</span> points</span>
+    <span class="streak" id="streak">0</span>
+    <div id="board"></div>
+    <div class="board-hidder"></div>
+    <div id="main-keys"></div>
+  </section>
+  <audio src="media/ocarina.mp3" style="display: none" id="audio" onended="EndGame()" ondurationchange="board.style.height = (song.duration*1000/50) + 'em';"></audio>
+  <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
