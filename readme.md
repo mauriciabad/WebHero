@@ -1,6 +1,6 @@
 Activitat pel worckshop de HTML, CSS i JS de JEDI de 2018 a la FIB.
 
-![Thumbnail](C:\Users\mauri\OneDrive\Escritorio\workshop web\thumbnail.png)
+![Thumbnail](https://github.com/mauriciabad/WebHero/blob/master/thumbnail.png)
 
 # Guió
 
